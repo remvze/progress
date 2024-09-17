@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { FaArrowRightLong } from 'react-icons/fa6';
 
 import { Container } from '../container';
@@ -12,6 +12,7 @@ export function App() {
   );
   const [inputDate, setInputDate] = useState('');
   const [secondsPassed, setSecondsPassed] = useState(0);
+  const filled = useRef(Math.random() * (80 - 30) + 30);
 
   useEffect(() => {
     if (birthDate !== undefined) {
@@ -70,7 +71,11 @@ export function App() {
 
           <div className={styles.progressbar}>
             <div className={styles.wrapper}>
-              <div className={styles.progress} />
+              <div
+                className={styles.progress}
+                style={{ width: `${filled.current}%` }}
+              />
+              <div className={styles.remains} />
             </div>
           </div>
 
