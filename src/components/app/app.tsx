@@ -2,70 +2,55 @@ import { useState, useEffect } from 'react';
 import { FaArrowRightLong } from 'react-icons/fa6';
 
 import { Container } from '../container';
-
 import styles from './app.module.css';
 import { useLocalStorage } from '@/hooks/use-local-storage';
 
 export function App() {
-  const [birthYear, setBirthYear] = useLocalStorage<number | undefined>(
+  const [birthDate, setBirthDate] = useLocalStorage<string | undefined>(
     'progress-birth',
     undefined,
   );
-  const [inputYear, setInputYear] = useState('');
-  const [percentage, setPercentage] = useState(0);
-  const [endYear, setEndYear] = useState(2100);
+  const [inputDate, setInputDate] = useState('');
+  const [secondsPassed, setSecondsPassed] = useState(0);
 
   useEffect(() => {
-    if (birthYear !== undefined) {
-      const birthDate = new Date(birthYear, 0, 1);
-      const endDate = new Date(birthDate);
+    if (birthDate !== undefined) {
+      const birthDateObj = new Date(birthDate);
 
-      endDate.setFullYear(endDate.getFullYear() + 80);
-
-      setEndYear(endDate.getFullYear());
-
-      const totalDuration = endDate.getTime() - birthDate.getTime();
-
-      const updatePercentage = () => {
+      const updateSecondsPassed = () => {
         const now = new Date();
-        const elapsedTime = now.getTime() - birthDate.getTime();
-
-        let percent = (elapsedTime / totalDuration) * 100;
-
-        percent = Math.max(0, Math.min(percent, 100));
-
-        setPercentage(percent);
+        const elapsedTime = (now.getTime() - birthDateObj.getTime()) / 1000;
+        setSecondsPassed(elapsedTime);
       };
 
-      updatePercentage();
+      updateSecondsPassed();
 
-      const interval = setInterval(updatePercentage, 100);
+      const interval = setInterval(updateSecondsPassed, 1000);
 
       return () => clearInterval(interval);
     }
-  }, [birthYear]);
+  }, [birthDate]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const year = parseInt(inputYear);
-
-    if (!isNaN(year)) {
-      setBirthYear(year);
+    const date = new Date(inputDate);
+    if (!isNaN(date.getTime())) {
+      setBirthDate(date.toISOString());
     }
   };
 
   return (
     <Container>
-      {birthYear === undefined ? (
+      {birthDate === undefined ? (
         <form className={styles.form} onSubmit={handleSubmit}>
-          <label htmlFor="year">Enter your birth year:</label>
+          <label htmlFor="birthDate">Enter your birth date:</label>
           <div className={styles.field}>
             <input
-              id="year"
-              type="number"
-              value={inputYear}
-              onChange={e => setInputYear(e.target.value)}
+              id="birthDate"
+              type="date"
+              value={inputDate}
+              onChange={e => setInputDate(e.target.value)}
             />
             <button type="submit">
               <FaArrowRightLong />
@@ -77,40 +62,30 @@ export function App() {
       ) : (
         <>
           <p className={styles.percentage}>
-            <span className={styles.number}>{percentage.toFixed(8)}%</span> of
-            your life <span className={styles.star}>*</span> has passed.
+            <span className={styles.number}>
+              {Math.floor(secondsPassed).toLocaleString()}
+            </span>{' '}
+            seconds have passed.
           </p>
 
           <div className={styles.progressbar}>
             <div className={styles.wrapper}>
-              <div
-                className={styles.progress}
-                style={{
-                  width: `${percentage}%`,
-                }}
-              ></div>
+              <div className={styles.progress} />
             </div>
           </div>
 
-          <div className={styles.numbers}>
-            <p>
-              <span>000</span> — {birthYear}
-            </p>
-            <p>
-              {endYear} — <span>100</span>
-            </p>
-          </div>
-
-          <p className={styles.assume}>
-            <span>*</span> assuming 80 years.
+          <p className={styles.left}>
+            <span className={styles.number}>???</span> seconds left.
           </p>
 
-          <button
-            className={styles.reset}
-            onClick={() => setBirthYear(undefined)}
-          >
-            [Reset your age]
-          </button>
+          <div className={styles.resetWrapper}>
+            <button
+              className={styles.reset}
+              onClick={() => setBirthDate(undefined)}
+            >
+              [Reset your birth date]
+            </button>
+          </div>
         </>
       )}
     </Container>
