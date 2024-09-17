@@ -1,3 +1,61 @@
+.form {
+  & label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: var(--font-sm);
+    font-weight: 500;
+    color: var(--color-foreground-subtle);
+  }
+
+  & .field {
+    display: flex;
+    column-gap: 12px;
+    align-items: center;
+    width: 100%;
+    max-width: 300px;
+    height: 40px;
+
+    & input {
+      display: block;
+      flex-grow: 1;
+      min-width: 0;
+      height: 100%;
+      padding: 0 12px;
+      font-size: var(--font-sm);
+      color: var(--color-foreground);
+      background-color: transparent;
+      border: 1px solid var(--color-neutral-200);
+      outline: none;
+    }
+
+    & button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      aspect-ratio: 1 / 1;
+      font-size: var(--font-sm);
+      color: var(--color-foreground-subtle);
+      cursor: pointer;
+      background-color: var(--color-neutral-100);
+      border: none;
+      outline: none;
+      transition: 0.2s;
+
+      &:hover {
+        color: var(--color-foreground);
+        background-color: var(--color-neutral-200);
+      }
+    }
+  }
+
+  & p {
+    margin-top: 20px;
+    font-size: var(--font-sm);
+    color: var(--color-foreground-subtler);
+  }
+}
+
 .percentage {
   margin-bottom: 8px;
   font-size: var(--font-sm);

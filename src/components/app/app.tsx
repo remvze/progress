@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { FaArrowRightLong } from 'react-icons/fa6';
 
 import { Container } from '../container';
 
@@ -53,15 +54,21 @@ export function App() {
   return (
     <Container>
       {birthYear === undefined ? (
-        <form onSubmit={handleSubmit}>
+        <form className={styles.form} onSubmit={handleSubmit}>
           <label htmlFor="year">Enter your birth year:</label>
-          <input
-            id="year"
-            type="number"
-            value={inputYear}
-            onChange={e => setInputYear(e.target.value)}
-          />
-          <button type="submit">Submit</button>
+          <div className={styles.field}>
+            <input
+              id="year"
+              type="number"
+              value={inputYear}
+              onChange={e => setInputYear(e.target.value)}
+            />
+            <button type="submit">
+              <FaArrowRightLong />
+            </button>
+          </div>
+
+          <p>Everything is stored locally.</p>
         </form>
       ) : (
         <>
