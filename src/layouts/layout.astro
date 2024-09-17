@@ -8,11 +8,11 @@ interface Props {
 }
 
 const title = Astro.props.title
-  ? `${Astro.props.title} — Progressbar`
-  : 'Progressbar: The Progressbar of Your Life';
+  ? `${Astro.props.title} — Progress`
+  : 'Progress: The Progress Bar of Your Life';
 
 const description =
-  Astro.props.description || 'A progressbar for your journey.';
+  Astro.props.description || 'A progress bar for your journey.';
 
 const og = Astro.props.og || '/og.png';
 ---
@@ -32,10 +32,10 @@ const og = Astro.props.og || '/og.png';
 
     <meta content={title} property="og:title" />
     <meta content={description} property="og:description" />
-    <meta content="Progressbar" property="og:site_name" />
-    <meta content="https://progressbar.life/" property="og:url" />
+    <meta content="The Progress" property="og:site_name" />
+    <meta content="https://progress.rip/" property="og:url" />
     <meta content="website" property="og:type" />
-    <meta content={`https://progressbar.life${og}`} property="og:image" />
+    <meta content={`https://progress.rip${og}`} property="og:image" />
 
     <link href="/sitemap-index.xml" rel="sitemap" />
   </head>

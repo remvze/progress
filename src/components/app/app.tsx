@@ -8,7 +8,7 @@ import { useLocalStorage } from '@/hooks/use-local-storage';
 
 export function App() {
   const [birthYear, setBirthYear] = useLocalStorage<number | undefined>(
-    'progressbar-birth',
+    'progress-birth',
     undefined,
   );
   const [inputYear, setInputYear] = useState('');

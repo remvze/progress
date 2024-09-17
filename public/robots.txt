@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://progressbar.life/sitemap-index.xml
+Sitemap: https://progress.rip/sitemap-index.xml

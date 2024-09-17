@@ -1,6 +1,6 @@
 services:
   timesy:
-    image: ghcr.io/remvze/progressbar
+    image: ghcr.io/remvze/progress
     logging:
       options:
         max-size: 1g
