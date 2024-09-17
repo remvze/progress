@@ -1,0 +1,67 @@
+---
+import { Container } from './container';
+---
+
+<div class="note">
+  <Container>
+    <h2>a note.</h2>
+    <p>
+      Sometimes, it feels as though the sands of time are slipping too quickly
+      through our fingers, and the weight of unfinished dreams casts long
+      shadows over our days. The Progressbar of your life may appear as a stark
+      reminder of moments passed and opportunities missed, evoking a sense of
+      urgency or even melancholy as you watch the percentages climb. It&apos;s
+      natural to pause and reflect, wondering if we&apos;ve done enough, loved
+      enough, or truly lived in the time that&apos;s unfolded.
+    </p>
+    <p>
+      Yet, it&apos;s within this very realization of life&apos;s fleeting nature
+      that we can find our greatest inspiration. The Progressbar isn&apos;t
+      merely a countdown of years gone by; it&apos;s a vivid tapestry of
+      experiences, lessons, and memories that have shaped who you are today.
+      Each passing percentage is not a loss but a celebration of your journey so
+      far—a testament to your resilience, growth, and the countless ways
+      you&apos;ve touched the world around you.
+    </p>
+    <p>
+      Let this awareness ignite a spark within you to seize the day, chase your
+      passions, and embrace the unknown. Remember, it&apos;s not about how much
+      time has passed, but how much life you&apos;ve poured into your time—and
+      there&apos;s still so much more to discover.
+    </p>
+
+    <p>
+      Created by <a href="https://x.com/remvze">Maze</a>.<br />
+      Code available on <a href="https://x.com/remvze">GitHub</a>.
+    </p>
+  </Container>
+</div>
+
+<style>
+  .note {
+    padding: 40px 0 80px;
+
+    & h2 {
+      margin-bottom: 8px;
+      font-family: var(--font-display);
+      font-size: var(--font-xlg);
+    }
+
+    & p {
+      font-family: var(--font-serif);
+      font-size: calc(var(--font-base) * 1.1);
+      line-height: 1.6;
+      color: var(--color-foreground-subtle);
+
+      &:not(:last-of-type) {
+        margin-bottom: 24px;
+      }
+
+      & a {
+        color: var(--color-foreground);
+        text-decoration-style: dotted;
+        text-decoration-color: var(--color-foreground-subtler);
+      }
+    }
+  }
+</style>
