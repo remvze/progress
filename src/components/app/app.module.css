@@ -110,3 +110,23 @@
     color: var(--color-foreground);
   }
 }
+
+.reset {
+  display: inline-block;
+  padding: 0;
+  margin-top: 20px;
+  font-size: var(--font-2xsm);
+  font-weight: 500;
+  color: var(--color-foreground-subtle);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  transition: 0.2s;
+
+  &:hover {
+    color: var(--color-foreground);
+  }
+}

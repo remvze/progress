@@ -4,9 +4,13 @@ import { FaArrowRightLong } from 'react-icons/fa6';
 import { Container } from '../container';
 
 import styles from './app.module.css';
+import { useLocalStorage } from '@/hooks/use-local-storage';
 
 export function App() {
-  const [birthYear, setBirthYear] = useState<number | undefined>(undefined);
+  const [birthYear, setBirthYear] = useLocalStorage<number | undefined>(
+    'progressbar-birth',
+    undefined,
+  );
   const [inputYear, setInputYear] = useState('');
   const [percentage, setPercentage] = useState(0);
   const [endYear, setEndYear] = useState(2100);
@@ -100,6 +104,13 @@ export function App() {
           <p className={styles.assume}>
             <span>*</span> assuming 80 years.
           </p>
+
+          <button
+            className={styles.reset}
+            onClick={() => setBirthYear(undefined)}
+          >
+            [Reset your age]
+          </button>
         </>
       )}
     </Container>
