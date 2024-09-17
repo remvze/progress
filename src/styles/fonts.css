@@ -42,3 +42,12 @@
   src: url('/fonts/space-mono-v13-latin-700.woff2') format('woff2');
   font-display: swap;
 }
+
+/* instrument-serif-regular - latin */
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/instrument-serif-v4-latin-regular.woff2') format('woff2');
+  font-display: swap;
+}

@@ -1,0 +1,28 @@
+---
+import { Container } from './container';
+---
+
+<div class="hero">
+  <Container>
+    <h1>The Progressbar</h1>
+    <p>Reflect on the moments passed;<br />Embrace the moments ahead.</p>
+  </Container>
+</div>
+
+<style>
+  .hero {
+    padding: 100px 0 60px;
+
+    & h1 {
+      font-family: var(--font-display);
+      font-size: var(--font-xlg);
+    }
+
+    & p {
+      margin-top: 4px;
+      font-size: var(--font-sm);
+      line-height: 1.5;
+      color: var(--color-foreground-subtle);
+    }
+  }
+</style>
